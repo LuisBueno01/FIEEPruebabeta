@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinculación Institucional</title>
+    
+    <!-- Recursos externos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Hoja de estilos local -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAV -->
+    <header class="header-vinc">
+        <div class="header-vinc__logo">
+            <span>V</span>inculación FIEE
+        </div>
+        <nav>
+            <ul class="header-vinc__nav">
+                <li><a href="#inicio" class="header-vinc__link">Inicio</a></li>
+                <li><a href="#areas" class="header-vinc__link">Nosotros</a></li>
+                <li><a href="#noticias" class="header-vinc__link">Noticias</a></li>
+                <a href="/auth/login.html" class="header-vinc__link header-vinc__btn-login">
+                <i class="fa-solid fa-user-lock"></i> Acceso
+                </a>
+            </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero-vinc">
+        <div class="hero-vinc__contenido">
+            <p class="hero-vinc__etiqueta">Área de Vinculación Institucional</p>
+            <h1 class="hero-vinc__titulo"> <em>Conectando saberes con lasociedad</em></h1>
+            <p class="hero-vinc__descripcion">
+                El puente entre la academia y el entorno productivo. Descubre nuestras oportunidades, proyectos y colaboraciones estratégicas.
+            </p>
+            <div class="hero-vinc__acciones">
+                <a href="#noticias" class="btn-vinc btn-vinc--primario">
+                    Ver Novedades <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#areas" class="btn-vinc btn-vinc--secundario">Conocer más</a>
+            </div>
+        </div>
+
+        <div class="hero-vinc__decoracion">
+            <div class="hero-vinc__circulos">
+                <div class="hero-vinc__circulo"></div>
+                <div class="hero-vinc__circulo"></div>
+                <div class="hero-vinc__circulo"></div>
+                <i class="fa-solid fa-layer-group hero-vinc__icono-central"></i>
+            </div>
+        </div>
+
+        <div class="hero-vinc__stats">
+            <div class="hero-vinc__stat">
+                <div class="hero-vinc__stat-num">120+</div>
+                <div class="hero-vinc__stat-texto">Convenios Activos</div>
+            </div>
+            <div class="hero-vinc__stat">
+                <div class="hero-vinc__stat-num">400+</div>
+                <div class="hero-vinc__stat-texto">Estudiantes Vinculados</div>
+            </div>
+            <div class="hero-vinc__stat">
+                <div class="hero-vinc__stat-num">60+</div>
+                <div class="hero-vinc__stat-texto">Empresas Aliadas</div>
+            </div>
+            <div class="hero-vinc__stat">
+                <div class="hero-vinc__stat-num">15</div>
+                <div class="hero-vinc__stat-texto">Años de Experiencia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS DE ACCIÓN -->
+    <section id="areas" class="areas-vinc">
+        <div class="areas-vinc__encabezado">
+            <div>
+                <h2 class="areas-vinc__titulo">Nuestras Áreas de Acción</h2>
+            </div>
+            <p class="areas-vinc__descripcion">
+                Trabajamos en tres frentes clave para generar impacto real entre la institución y la comunidad empresarial y social.
+            </p>
+        </div>
+
+        <div class="areas-vinc__grid">
+            <article class="card-area">
+                <div class="card-area__numero">01</div>
+                <div class="card-area__icono"><i class="fa-solid fa-handshake"></i></div>
+                <h3   class="card-area__titulo">
+                     <a href="https://luisbueno01.github.io/Empresas-Aliadas/" class="card-area__enlace"> Convenios </a>
+                <p class="card-area__texto">
+                    Gestionamos  y Firmamos  diversos  acuerdos estratégicos con empresas e instituciones para el desarrollo conjunto y sostenible, Aqui tambien 
+                    encontraras una lista de nuestras empresas aliadas que colaboran con nosotros.
+                </p>
+            </article>
+
+            <article class="card-area">
+                <div class="card-area__numero">02</div>
+                <div class="card-area__icono"><i class="fa-solid fa-briefcase"></i></div>
+                <h3 class="card-area__titulo">Bolsa de Trabajo</h3>
+                <p class="card-area__texto">
+                    Ofertas laborales exclusivas para estudiantes y egresados de la facultad . Conectamos talento con oportunidades reales .
+                </p>
+            </article>
+
+            <article class="card-area">
+                <div class="card-area__numero">03</div>
+                <div class="card-area__icono"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3 class="card-area__titulo">Pasantías</h3>
+                <p class="card-area__texto">
+                    Programas de Estadias profesionales diseñados para aplicar el conocimiento teórico en entornos reales para abquirir experiencia real en un entorno de produccion 
+                    siempre supervisado y bajo la guia de encargados.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section id="noticias" class="noticias-vinc">
+        <div class="noticias-vinc__encabezado">
+            <div>
+                <h2 class="noticias-vinc__titulo">Noticias y Artículos</h2>
+            </div>
+            <a href="#" class="noticias-vinc__ver-todo">Ver todo</a>
+        </div>
+
+        <div class="noticias-vinc__grid">
+            <article class="card-noticia">
+                <div class="card-noticia__imagen" style="background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80')">
+                    <span class="card-noticia__etiqueta">Evento</span>
+                </div>
+                <div class="card-noticia__contenido">
+                    <p class="card-noticia__fecha">12 de  Mayo, 2026</p>
+                    <h3 class="card-noticia__titulo">Feria del Empleador 2026</h3>
+                    <p class="card-noticia__texto">
+                        Participa en nuestra feria anual donde diversas Empresasa aliadas presentan sus proyectos y ofertas a los estudiantes interesados , ademas de 
+                        diversas platicas sobre sus proyectos.
+                    </p>
+                    <a href="#" class="card-noticia__link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="card-noticia">
+                <div class="card-noticia__imagen" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=80')">
+                    <span class="card-noticia__etiqueta">Anuncio</span>
+                </div>
+                <div class="card-noticia__contenido">
+                    <p class="card-noticia__fecha">20 Mayo, 2026</p>
+                    <h3 class="card-noticia__titulo">Nueva Convocatoria de Pasantías y Servicio Social</h3>
+                    <p class="card-noticia__texto">
+                        Apertura de vacantes para practicas profesionales o servicio social, dentro de la uv y empresas aliadas ademas de asesorias .
+                    </p>
+                    <a href="#" class="card-noticia__link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="card-noticia">
+                <div class="card-noticia__imagen" style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=700&q=80')">
+                    <span class="card-noticia__etiqueta">Artículo</span>
+                </div>
+                <div class="card-noticia__contenido">
+                    <p class="card-noticia__fecha">15 Octubre, 2026</p>
+                    <h3 class="card-noticia__titulo">Impacto Social de la Vinculación</h3>
+                    <p class="card-noticia__texto">
+                        Un análisis sobre cómo nuestros proyectos están transformando la comunidad local.
+                    </p>
+                    <a href="#" class="card-noticia__link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-vinc">
+        <h2 class="cta-vinc__texto">¿Ya eres parte de nuestra <em>comunidad</em>?</h2>
+        <a href="/auth/login.html" class="cta-vinc__btn">
+            Ingresar al Portal <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-vinc">
+        <div class="footer-vinc__grid">
+            <div class="footer-vinc__marca">
+                <span class="header-vinc__logo"><span>V</span>inculación</span>
+                <p class="footer-vinc__texto">
+                    Conectando el conocimiento académico con las necesidades del entorno productivo y social.,Acercando el futuro y la inovacion a nuestros estudiantes
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-vinc__titulo-col">Contacto</h4>
+                <a href="mailto:vinculacion@institucion.edu" class="footer-vinc__enlace">vinculacionfieever@uv.mx</a>
+                <a href="tel:+55123456789" class="footer-vinc__enlace">+55 000 000 0000</a>
+                <div class="footer-vinc__redes">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-vinc__titulo-col">Navegación</h4>
+                <a href="#inicio" class="footer-vinc__enlace">Inicio</a>
+                <a href="#areas" class="footer-vinc__enlace">Nosotros</a>
+                <a href="#noticias" class="footer-vinc__enlace">Noticias</a>
+                <a href="login.html" class="footer-vinc__enlace">Acceso al Portal</a>
+            </div>
+        </div>
+        <div class="footer-vinc__copyright">
+            <p>&copy; 2026 Área de Vinculación Institucional. Todos los derechos reservados.</p>
+            <p>Diseño institucional</p>
+        </div>
+    </footer>
+
+    <!-- Script externo -->
+    <script src="/paguinasprincipal/app.js"></script>
+</body>
+</html>
