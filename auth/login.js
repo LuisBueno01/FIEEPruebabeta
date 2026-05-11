@@ -223,7 +223,7 @@ function redirectToDashboard(role) {
   sessionStorage.setItem("userRole", role);
   sessionStorage.setItem("authTimestamp", Date.now().toString());
 
-  window.location.href = "../FIEEPruebabeta/menu/index.html";
+  window.location.href = "FIEEPruebabeta/menu/index.html";
 }
 
 /* =============================================
