@@ -1,0 +1,282 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso — Vinculación FIEE</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="screen active" id="screen-login">
+
+  <div class="auth-shell">
+
+    <div class="auth-left">
+
+      <div class="auth-left__logo">
+        <em>V</em>inculación FIEE
+      </div>
+
+      <div class="auth-heading">
+        <p class="auth-tag">Portal institucional</p>
+
+        <h1 class="auth-title">
+          Bienvenido de vuelta
+        </h1>
+
+        <p class="auth-sub">
+          Ingresa tus credenciales para continuar
+        </p>
+      </div>
+
+      <div class="alert err" id="login-err">
+        <i class="fa-solid fa-circle-exclamation"></i>
+
+        <span id="login-err-msg">
+          Correo o contraseña incorrectos.
+        </span>
+      </div>
+
+      <div class="field">
+
+        <label for="l-email">
+          Correo electrónico
+        </label>
+
+        <div class="field-wrap">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <input
+            type="email"
+            id="l-email"
+            placeholder="usuario@tecnm.mx"
+          >
+
+        </div>
+
+        <span class="field-err" id="l-email-err">
+          Ingresa un correo válido.
+        </span>
+
+      </div>
+
+      <div class="field">
+
+        <label for="l-pass">
+          Contraseña
+        </label>
+
+        <div class="field-wrap">
+
+          <i class="fa-solid fa-lock"></i>
+
+          <input
+            type="password"
+            id="l-pass"
+            placeholder="••••••••"
+          >
+
+          <i class="fa-solid fa-eye toggle-pw"
+            id="toggle-l-pass"></i>
+
+        </div>
+
+        <span class="field-err" id="l-pass-err">
+          Ingresa tu contraseña.
+        </span>
+
+      </div>
+
+      <a class="forgot" href="#">
+        ¿Olvidaste tu contraseña?
+      </a>
+
+      <button class="btn-submit" id="login-btn">
+
+        <span>Iniciar sesión</span>
+
+        <i class="fa-solid fa-right-to-bracket"></i>
+
+      </button>
+
+      <div class="divider">
+        <hr>
+        <span>¿No tienes cuenta?</span>
+        <hr>
+      </div>
+
+      <p class="switch-link">
+        <a id="link-to-register">
+          Regístrate aquí
+        </a>
+      </p>
+
+    </div>
+
+    <div class="auth-right">
+
+      <div class="auth-right__line"></div>
+
+      <div class="auth-right__content">
+
+        <p class="auth-right__label">
+          Área de Vinculación Institucional
+        </p>
+
+        <h2 class="auth-right__title">
+          Conectando saberes<br>
+          con la <em>sociedad</em>
+        </h2>
+
+        <p class="auth-right__desc">
+          El puente entre la academia y el entorno productivo.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- REGISTER -->
+<div class="screen" id="screen-register">
+
+  <div class="auth-shell">
+
+    <div class="auth-left">
+
+      <div class="auth-left__logo">
+        <em>V</em>inculación FIEE
+      </div>
+
+      <div class="panel active">
+
+        <div class="auth-heading">
+
+          <p class="auth-tag">
+            Nuevo registro
+          </p>
+
+          <h1 class="auth-title">
+            ¿Quién eres?
+          </h1>
+
+          <p class="auth-sub">
+            Elige tu tipo de cuenta para comenzar
+          </p>
+
+        </div>
+
+        <div class="role-selector">
+
+          <button
+            class="role-btn active"
+            id="rol-alumno"
+            data-role="alumno"
+          >
+
+            <div class="role-btn__icon">🎓</div>
+
+            <div class="role-btn__label">
+              Estudiante
+            </div>
+
+            <div class="role-btn__sub">
+              Busco estadías
+            </div>
+
+          </button>
+
+          <button
+            class="role-btn"
+            id="rol-empresa"
+            data-role="empresa"
+          >
+
+            <div class="role-btn__icon">🏢</div>
+
+            <div class="role-btn__label">
+              Empresa
+            </div>
+
+            <div class="role-btn__sub">
+              Ofrezco vacantes
+            </div>
+
+          </button>
+
+        </div>
+
+        <button class="btn-submit" id="btn-step1-next">
+
+          Continuar
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+        <div class="divider">
+          <hr>
+          <span>¿Ya tienes cuenta?</span>
+          <hr>
+        </div>
+
+        <p class="switch-link">
+          <a id="link-to-login">
+            Iniciar sesión
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="auth-right">
+
+      <div class="auth-right__line"></div>
+
+      <div class="auth-right__content">
+
+        <p class="auth-right__label">
+          Nuevo registro
+        </p>
+
+        <h2 class="auth-right__title"
+          id="reg-right-title">
+
+          Comienza tu<br>
+          <em>camino profesional</em>
+
+        </h2>
+
+        <p class="auth-right__desc"
+          id="reg-right-desc">
+
+          Crea tu perfil y encuentra oportunidades.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Empresa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reguister.css">
+</head>
+<body>
+
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🏢</div>
+        <div>
+          <span class="logo-name">FIEE </span>
+          <span class="logo-sub">Prácticas &amp; Servicio Social</span>
+        </div>
+      </div>
+      <span class="header-badge">Registro de Empresa</span>
+    </div>
+  </header>
+
+  <main class="main-wrap">
+
+    <div class="form-header">
+      <h1 class="form-title">Publica tu vacante</h1>
+      <p class="form-subtitle">Completa el perfil de tu empresa para conectar con los mejores estudiantes</p>
+      <div class="progress-bar" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <form id="registerForm" novalidate>
+
+      <!-- 01 CUENTA -->
+      <section class="card" data-section="cuenta">
+        <div class="card-header">
+          <span class="card-index">01</span>
+          <div>
+            <h2 class="card-title">Cuenta</h2>
+            <p class="card-desc">Credenciales del responsable de reclutamiento</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label for="email">Correo empresarial</label>
+              <input type="email" id="email" placeholder="reclutamiento@empresa.com" required>
+            </div>
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 DATOS DE LA EMPRESA -->
+      <section class="card" data-section="empresa">
+        <div class="card-header">
+          <span class="card-index">02</span>
+          <div>
+            <h2 class="card-title">Datos de la empresa</h2>
+            <p class="card-desc">Información general e identificación oficial</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label for="nombreEmpresa">Nombre de la empresa</label>
+              <input type="text" id="nombreEmpresa" placeholder="Ej. Sistemas Veracruz S.A. de C.V." required>
+            </div>
+            <div class="field">
+              <label for="rfc">RFC</label>
+              <input type="text" id="rfc" placeholder="Ej. SIV900101ABC" maxlength="13">
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="field">
+              <label for="sector">Sector / Industria</label>
+              <select id="sector" required>
+                <option value="">Selecciona</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="manufactura">Manufactura</option>
+                <option value="automotriz">Automotriz</option>
+                <option value="salud">Salud</option>
+                <option value="educacion">Educación</option>
+                <option value="gobierno">Gobierno</option>
+                <option value="energia">Energía</option>
+                <option value="logistica">Logística</option>
+                <option value="finanzas">Finanzas</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tamaño">Tamaño</label>
+              <select id="tamaño">
+                <option value="">Empleados</option>
+                <option value="1-10">1 – 10</option>
+                <option value="11-50">11 – 50</option>
+                <option value="51-200">51 – 200</option>
+                <option value="201-500">201 – 500</option>
+                <option value="500+">500+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fundacion">Año de fundación</label>
+              <input type="number" id="fundacion" placeholder="Ej. 2005" min="1900" max="2025">
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="ciudad">Ciudad / Municipio</label>
+              <input type="text" id="ciudad" placeholder="Ej. Xalapa, Veracruz" required>
+            </div>
+            <div class="field">
+              <label for="sitioWeb">Sitio web</label>
+              <input type="url" id="sitioWeb" placeholder="https://www.empresa.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="descripcionEmpresa">Descripción de la empresa</label>
+            <textarea id="descripcionEmpresa"
+              placeholder="Describe a qué se dedica la empresa, su cultura, tecnologías que usa y por qué es un buen lugar para practicar (3–5 líneas)…"></textarea>
+            <p class="field-note">Este texto se usa en el análisis semántico de compatibilidad con estudiantes.</p>
+          </div>
+          <div class="field">
+            <label>Logotipo de la empresa <span class="field-hint">(PNG o JPG, opcional)</span></label>
+            <div class="file-drop" id="logoDrop">
+              <span class="file-icon">🖼️</span>
+              <span class="file-text" id="logoText">Arrastra tu logo o haz clic</span>
+              <input type="file" id="logo" accept=".png,.jpg,.jpeg">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 CONTACTO -->
+      <section class="card" data-section="contacto">
+        <div class="card-header">
+          <span class="card-index">03</span>
+          <div>
+            <h2 class="card-title">Contacto</h2>
+            <p class="card-desc">Persona responsable del seguimiento de practicantes</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label for="contactoNombre">Nombre del responsable</label>
+              <input type="text" id="contactoNombre" placeholder="Ej. Ing. Carlos Méndez" required>
+            </div>
+            <div class="field">
+              <label for="contactoPuesto">Puesto</label>
+              <input type="text" id="contactoPuesto" placeholder="Ej. Jefe de Recursos Humanos">
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="contactoTel">Teléfono directo</label>
+              <input type="tel" id="contactoTel" placeholder="Ej. 228 123 4567">
+            </div>
+            <div class="field">
+              <label for="contactoEmail">Correo de contacto</label>
+              <input type="email" id="contactoEmail" placeholder="contacto@empresa.com">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 PERFIL DE LA VACANTE -->
+     <!-- 04 PERFIL DE LA VACANTE -->
+<section class="card card-accent" data-section="vacante">
+
+  <div class="card-header">
+    <span class="card-index accent">04</span>
+
+    <div>
+      <h2 class="card-title">
+        Perfil de la vacante
+        <span class="tag-new">matching</span>
+      </h2>
+
+      <p class="card-desc">
+        Define qué tipo de estudiante necesitas
+      </p>
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <!-- Tipo de programa -->
+    <div class="field">
+
+      <label>Tipo de programa que ofreces</label>
+
+      <div class="chip-group exclusive" id="tipoPrograma">
+
+        <button type="button" class="chip">
+          Servicio social
+        </button>
+
+        <button type="button" class="chip">
+          Prácticas profesionales
+        </button>
+
+        <button type="button" class="chip">
+          Ambos
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Título y área -->
+    <div class="grid-2">
+
+      <div class="field">
+        <label for="vacanteTitulo">
+          Título de la vacante
+        </label>
+
+        <input
+          type="text"
+          id="vacanteTitulo"
+          placeholder="Ej. Desarrollador Web Jr."
+          required
+        >
+      </div>
+
+      <div class="field">
+
+        <label for="vacanteArea">
+          Área / Departamento
+        </label>
+
+        <input
+          type="text"
+          id="vacanteArea"
+          placeholder="Ej. Desarrollo de Software"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- CARRERAS -->
+    <div class="field">
+
+      <label>
+        Carreras aceptadas
+        <span class="field-hint">
+          (selecciona todas las compatibles)
+        </span>
+      </label>
+
+      <div class="chip-group" id="carreras">
+
+        <button type="button" class="chip">
+          Ing. Informatica
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Electrica
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Mecatronica
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Electronica y comunicaciones
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Industrial
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Ingenieria Metalurgica y Ciencias de los Materiales
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Ingenieria Naval
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Quimica
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Civil
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Arquitectura
+        </button>
+
+        <button type="button" class="chip">
+          Ing. Topografia Geodesica
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- REQUISITOS -->
+    <div class="grid-2">
+
+      <div class="field">
+
+        <label for="semestreMin">
+          Semestre mínimo requerido
+        </label>
+
+        <select id="semestreMin">
+
+          <option value="">
+            Sin requisito
+          </option>
+
+          <option value="6">6°</option>
+          <option value="7">7°</option>
+          <option value="8">8°</option>
+          <option value="9">9°</option>
+          <option value="10">10°</option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label for="promedioMin">
+          Promedio mínimo
+        </label>
+
+        <input
+          type="number"
+          id="promedioMin"
+          placeholder="Ej. 80"
+          min="0"
+          max="100"
+          step="0.5"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- HABILIDADES DINÁMICAS -->
+    <div class="field">
+
+      <label>
+        Habilidades técnicas requeridas
+        <span class="field-hint">
+          (se generan automáticamente por carrera)
+        </span>
+      </label>
+
+      <div id="habilidadesPorCarrera"></div>
+
+    </div>
+
+    <!-- OTRAS HABILIDADES -->
+    <div class="field">
+
+      <label for="otrasHabilidades">
+
+        Otras habilidades o tecnologías
+
+        <span class="field-hint">
+          (separadas por coma)
+        </span>
+
+      </label>
+
+      <input
+        type="text"
+        id="otrasHabilidades"
+        placeholder="Ej. Docker, SolidWorks, SAP"
+      >
+
+    </div>
+
+    <!-- INGLÉS Y EXPERIENCIA -->
+    <div class="grid-2">
+
+      <div class="field">
+
+        <label>
+          Nivel de inglés requerido
+        </label>
+
+        <div class="chip-group exclusive" id="inglesReq">
+
+          <button type="button" class="chip">
+            No requerido
+          </button>
+
+          <button type="button" class="chip">
+            Básico
+          </button>
+
+          <button type="button" class="chip">
+            Intermedio
+          </button>
+
+          <button type="button" class="chip">
+            Avanzado
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+          Experiencia previa
+        </label>
+
+        <div class="chip-group exclusive" id="expReq">
+
+          <button type="button" class="chip">
+            No requerida
+          </button>
+
+          <button type="button" class="chip">
+            Deseable
+          </button>
+
+          <button type="button" class="chip">
+            Obligatoria
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="field">
+
+      <label for="descripcionVacante">
+        Descripción de actividades
+      </label>
+
+      <textarea
+        id="descripcionVacante"
+        placeholder="Describe las actividades que realizará el practicante, herramientas que usará y aprendizajes esperados…"
+      ></textarea>
+
+    </div>
+
+  </div>
+
+</section>
+
+      <!-- 05 CONDICIONES -->
+      <section class="card card-accent" data-section="condiciones">
+        <div class="card-header">
+          <span class="card-index accent">05</span>
+          <div>
+            <h2 class="card-title">Condiciones <span class="tag-new">matching</span></h2>
+            <p class="card-desc">Disponibilidad, horarios y compensación</p>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="grid-3">
+            <div class="field">
+              <label>Modalidad</label>
+              <div class="chip-group exclusive" id="modalidad">
+                <button type="button" class="chip">Presencial</button>
+                <button type="button" class="chip">Remoto</button>
+                <button type="button" class="chip">Híbrido</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Turno</label>
+              <div class="chip-group exclusive" id="turno">
+                <button type="button" class="chip">Matutino</button>
+                <button type="button" class="chip">Vespertino</button>
+                <button type="button" class="chip">Ambos</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Duración</label>
+              <div class="chip-group exclusive" id="duracion">
+                <button type="button" class="chip">3 meses</button>
+                <button type="button" class="chip">6 meses</button>
+                <button type="button" class="chip">1 año</button>
+                <button type="button" class="chip">Flexible</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Horas requeridas por semana: <strong id="hrsLabel">20 hrs</strong></label>
+            <div class="range-wrap">
+              <span class="range-edge">10</span>
+              <input type="range" id="hrsRange" min="10" max="48" value="20" step="2">
+              <span class="range-edge">48</span>
+            </div>
+            <input type="hidden" id="horasSemanales" value="20">
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Beca mensual ofrecida (MXN)</label>
+              <div class="chip-group exclusive" id="becaOfrecida">
+                <button type="button" class="chip">Sin beca</button>
+                <button type="button" class="chip">$1,000 – $2,500</button>
+                <button type="button" class="chip">$2,500 – $5,000</button>
+                <button type="button" class="chip">$5,000+</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Plazas disponibles</label>
+              <input type="number" id="plazas" placeholder="Ej. 2" min="1" max="50">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Beneficios adicionales <span class="field-hint">(selecciona los que aplican)</span></label>
+            <div class="chip-group" id="beneficios">
+              <button type="button" class="chip">Transporte</button>
+              <button type="button" class="chip">Comedor</button>
+              <button type="button" class="chip">Seguro médico</button>
+              <button type="button" class="chip">Capacitación</button>
+              <button type="button" class="chip">Carta de recomendación</button>
+              <button type="button" class="chip">Posibilidad de contratación</button>
+              <button type="button" class="chip">Equipo de trabajo</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 06 DOCUMENTOS -->
+      <section class="card" data-section="documentos">
+        <div class="card-header">
+          <span class="card-index">06</span>
+          <div>
+            <h2 class="card-title">Documentos</h2>
+            <p class="card-desc">Convenio y carta de aceptación del TecNM</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label>Convenio firmado <span class="field-hint">(PDF)</span></label>
+              <div class="file-drop" id="convenioDrop">
+                <span class="file-icon">📄</span>
+                <span class="file-text" id="convenioText">Arrastra el convenio o haz clic</span>
+                <input type="file" id="convenio" accept=".pdf" >
+              </div>
+            </div>
+            <div class="field">
+              <label>Constancia fiscal / Acta constitutiva <span class="field-hint">(PDF, opcional)</span></label>
+              <div class="file-drop" id="constanciaDrop">
+                <span class="file-icon">🗂️</span>
+                <span class="file-text" id="constanciaText">Arrastra el documento o haz clic</span>
+                <input type="file" id="constancia" accept=".pdf">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="form-footer">
+        <p class="footer-note">Al registrarte aceptas que los datos de la empresa se usen para el análisis de compatibilidad con estudiantes.</p>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Registrar empresa</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="form-msg" id="mensaje" role="alert"></p>
+      </div>
+
+    </form>
+  </main>
+
+  <script type="module" src="registerempresa.js"></script>
+</body>
+</html>

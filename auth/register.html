@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reguister.css">
+</head>
+<body>
+
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <div>
+          <span class="logo-name">FIEE</span>
+          <span class="logo-sub">Prácticas &amp; Servicio Social</span>
+        </div>
+      </div>
+      <span class="header-badge">Registro de Estudiante</span>
+    </div>
+  </header>
+
+  <main class="main-wrap">
+
+    <div class="form-header">
+      <h1 class="form-title">Crea tu perfil</h1>
+      <p class="form-subtitle">Completa todos los campos para que podamos encontrarte la empresa ideal</p>
+      <div class="progress-bar" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <form id="registerForm" novalidate>
+
+      <!-- CUENTA -->
+      <section class="card" data-section="cuenta">
+        <div class="card-header">
+          <span class="card-index">01</span>
+          <div>
+            <h2 class="card-title">Cuenta</h2>
+            <p class="card-desc">Tus credenciales de acceso</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label for="email">Correo institucional</label>
+              <input type="email" id="email" placeholder="usuario@tecnm.mx" required>
+            </div>
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFORMACIÓN PERSONAL -->
+      <section class="card" data-section="personal">
+        <div class="card-header">
+          <span class="card-index">02</span>
+          <div>
+            <h2 class="card-title">Información personal</h2>
+            <p class="card-desc">Datos de identificación académica</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="Ej. Ana López Ramírez" required>
+            </div>
+            <div class="field">
+              <label for="matricula">Matrícula</label>
+              <input type="text" id="matricula" placeholder="Ej. 21060123" required>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="field">
+              <label for="carrera">Carrera</label>
+              <select id="carrera" required>
+               <option value="">— Selecciona —</option>
+               <option value="Ing. Informatica">Ing. Informatica</option>
+               <option value="Ing. Electrica">Ing. Eléctrica</option>
+               <option value="Ing. Mecatronica">Ing. Mecatrónica</option>
+               <option value="Ing. Electronica y comunicaciones">Ing. Electronica y comunicaciones</option>
+               <option value="Ing. Industrial">Ing. Industrial</option>
+               <option value="Ing. Ingenieria Metalurgica y Ciencias de los Materiales">
+                 Ing. Ingeniería Metalúrgica y Ciencias de los Materiales  </option>
+               <option value="Ing. Ingenieria Naval">Ing. Ingeniería Naval</option>
+               <option value="Ing. Quimica">Ing. Química</option>
+               <option value="Ing. Civil">Ing. Civil</option>
+               <option value="Ing. Arquitectura">Ing. Arquitectura</option>
+               <option value="Ing. Topografia Geodesica">Ing. Topografía Geodésica</option>
+             </select>
+            </div>
+            <div class="field">
+              <label for="semestre">Semestre</label>
+              <select id="semestre" required>
+                <option value="">Sem.</option>
+                <option value="7">7°</option>
+                <option value="8">8°</option>
+                <option value="9">9°</option>
+                <option value="10">10°</option>
+                <option value="11">11°</option>
+                <option value="12">12°</option>
+                <option value="13">13°</option>
+                <option value="14">14°</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="promedio">Promedio <span class="tag-new">nuevo</span></label>
+              <input type="number" id="promedio" placeholder="Ej. 88.5" min="0" max="100" step="0.1">
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="telefono">Teléfono <span class="tag-new">nuevo</span></label>
+              <input type="tel" id="telefono" placeholder="Ej. 229 123 4567">
+            </div>
+            <div class="field">
+              <label for="ciudad">Ciudad / Municipio <span class="tag-new">nuevo</span></label>
+              <input type="text" id="ciudad" placeholder="Ej. Xalapa, Veracruz">
+            </div>
+          </div>
+          <div class="field">
+            <label for="curp">CURP <span class="tag-new">nuevo</span></label>
+            <input type="text" id="curp" placeholder="Para validación oficial" maxlength="18">
+          </div>
+        </div>
+        <div class="grid-2">
+  <div class="field">
+    <label for="nss">NSS (Número de Seguridad Social)</label>
+    <input type="text" id="nss" placeholder="Ej. 12345678901" maxlength="11">
+  </div>
+  <div class="field">
+    <label for="direccion">Dirección completa</label>
+    <input type="text" id="direccion" placeholder="Calle, número, colonia, CP">
+  </div>
+</div>
+      </section>
+
+      <!-- PERFIL TÉCNICO -->
+      <section class="card card-accent" data-section="tecnico">
+        <div class="card-header">
+          <span class="card-index accent">03</span>
+          <div>
+            <h2 class="card-title">Perfil técnico <span class="tag-new">nuevo</span></h2>
+            <p class="card-desc">Clave para el análisis de compatibilidad con empresas</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="field">
+            <label>Habilidades técnicas <span class="field-hint">(selecciona todas las que dominas)</span></label>
+            <div class="chip-group" id="skills">
+              <button type="button" class="chip">Python</button>
+              <button type="button" class="chip">JavaScript</button>
+              <button type="button" class="chip">Java</button>
+              <button type="button" class="chip">C++</button>
+              <button type="button" class="chip">SQL</button>
+              <button type="button" class="chip">React</button>
+              <button type="button" class="chip">Node.js</button>
+              <button type="button" class="chip">Arduino</button>
+              <button type="button" class="chip">PLC</button>
+              <button type="button" class="chip">AutoCAD</button>
+              <button type="button" class="chip">Redes</button>
+              <button type="button" class="chip">Linux</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="otrasHabilidades">Otras habilidades <span class="field-hint">(separadas por coma)</span></label>
+            <input type="text" id="otrasHabilidades" placeholder="Ej. Docker, MongoDB, LabVIEW">
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Nivel de inglés</label>
+              <div class="chip-group exclusive" id="ingles">
+                <button type="button" class="chip">Básico</button>
+                <button type="button" class="chip">Intermedio</button>
+                <button type="button" class="chip">Avanzado</button>
+                <button type="button" class="chip">Nativo</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Experiencia previa</label>
+              <div class="chip-group exclusive" id="exp">
+                <button type="button" class="chip">Sin experiencia</button>
+                <button type="button" class="chip">Freelance / proyectos</button>
+                <button type="button" class="chip">Empleo formal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISPONIBILIDAD -->
+      <section class="card card-accent" data-section="disponibilidad">
+        <div class="card-header">
+          <span class="card-index accent">04</span>
+          <div>
+            <h2 class="card-title">Disponibilidad <span class="tag-new">nuevo</span></h2>
+            <p class="card-desc">Horarios y modalidad de trabajo</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div class="field">
+              <label>Modalidad</label>
+              <div class="chip-group exclusive" id="modal">
+                <button type="button" class="chip">Presencial</button>
+                <button type="button" class="chip">Remoto</button>
+                <button type="button" class="chip">Híbrido</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Turno</label>
+              <div class="chip-group exclusive" id="turno">
+                <button type="button" class="chip">Matutino</button>
+                <button type="button" class="chip">Vespertino</button>
+                <button type="button" class="chip">Ambos</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>¿Dispuesto a reubicarte?</label>
+              <div class="chip-group exclusive" id="reloc">
+                <button type="button" class="chip">Sí</button>
+                <button type="button" class="chip">No</button>
+                <button type="button" class="chip">Depende</button>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Horas disponibles por semana: <strong id="hrsLabel">20 hrs</strong></label>
+            <div class="range-wrap">
+              <span class="range-edge">10</span>
+              <input type="range" id="hrsRange" min="10" max="48" value="20" step="2">
+              <span class="range-edge">48</span>
+            </div>
+            <input type="hidden" id="horasSemanales" value="20">
+          </div>
+        </div>
+      </section>
+
+      <!-- PREFERENCIAS -->
+      <section class="card card-accent" data-section="preferencias">
+        <div class="card-header">
+          <span class="card-index accent">05</span>
+          <div>
+            <h2 class="card-title">Preferencias laborales <span class="tag-new">nuevo</span></h2>
+            <p class="card-desc">Para un matching más preciso</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="field">
+            <label>Áreas de interés <span class="field-hint">(puedes elegir varias)</span></label>
+            <div class="chip-group" id="areas">
+              <button type="button" class="chip">Desarrollo web</button>
+              <button type="button" class="chip">Redes / ciberseguridad</button>
+              <button type="button" class="chip">Automatización</button>
+              <button type="button" class="chip">Datos / IA</button>
+              <button type="button" class="chip">Manufactura</button>
+              <button type="button" class="chip">Soporte técnico</button>
+              <button type="button" class="chip">Electrónica / IoT</button>
+              <button type="button" class="chip">Administración TI</button>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Tipo de empresa preferida</label>
+              <div class="chip-group" id="tipoEmp">
+                <button type="button" class="chip">Startup</button>
+                <button type="button" class="chip">PYME</button>
+                <button type="button" class="chip">Corporativo</button>
+                <button type="button" class="chip">Gobierno</button>
+                <button type="button" class="chip">Sin preferencia</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Expectativa de beca mensual (MXN)</label>
+              <div class="chip-group exclusive" id="beca">
+                <button type="button" class="chip">Sin beca</button>
+                <button type="button" class="chip">$1,000 – $2,500</button>
+                <button type="button" class="chip">$2,500 – $5,000</button>
+                <button type="button" class="chip">$5,000+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERÉS Y DOCUMENTOS -->
+      <section class="card" data-section="documentos">
+        <div class="card-header">
+          <span class="card-index">06</span>
+          <div>
+            <h2 class="card-title">Interés y documentos</h2>
+            <p class="card-desc">Tipo de programa y archivos requeridos</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="field">
+            <label>¿Qué programa buscas?</label>
+            <div class="chip-group exclusive" id="interes">
+              <button type="button" class="chip">Servicio social</button>
+              <button type="button" class="chip">Prácticas profesionales</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="descripcion">Descripción personal <span class="tag-new">nuevo</span></label>
+            <textarea id="descripcion"
+              placeholder="Cuéntanos brevemente qué te diferencia, qué proyectos has hecho y qué esperas de tus prácticas (3–5 líneas)…"></textarea>
+            <p class="field-note">Este texto alimenta el análisis semántico de compatibilidad con empresas.</p>
+          </div>
+            <div class="grid-2">
+  <div class="field">
+    <label for="cv">CV en PDF <span class="field-hint">(opcional)</span></label>
+    <div class="file-drop" id="fileDrop">
+      <span class="file-icon">📄</span>
+      <span class="file-text" id="fileText">Arrastra tu CV o haz clic</span>
+      <input type="file" id="cv" accept=".pdf">
+    </div>
+  </div>
+  <div class="field">
+    <label for="carta">Carta de Presentación <span class="field-hint">(opcional)</span></label>
+    <div class="file-drop" id="cartaDrop">
+      <span class="file-icon">✉️</span>
+      <span class="file-text" id="cartaText">Arrastra tu carta o haz clic</span>
+      <input type="file" id="carta" accept=".pdf">
+    </div>
+  </div>
+</div>
+            <div class="field">
+              <label for="linkedin">LinkedIn o portafolio <span class="tag-new">nuevo</span></label>
+              <input type="url" id="linkedin" placeholder="https://linkedin.com/in/tu-perfil">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="form-footer">
+        <p class="footer-note">Al registrarte aceptas que tus datos se usen para el análisis de compatibilidad empresa–alumno.</p>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Crear perfil</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="form-msg" id="mensaje" role="alert"></p>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="register.js" type="module"></script>
+</body>
+</html>
