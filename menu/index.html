@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Vinculación FIEE</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay">
+    <div class="spinner"></div>
+    <p class="loading-text">Cargando tu panel...</p>
+  </div>
+
+  <!-- NUEVO: Modal overlay (necesario para ver detalles, editar perfil, etc.) -->
+  <div id="modalOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__logo"><em>V</em>inculación FIEE</div>
+      <span class="sidebar__logo-sub">Portal</span>
+      <span class="sidebar__role-badge" id="roleBadge">Cargando...</span>
+    </div>
+
+    <div class="sidebar__profile">
+      <div class="sidebar__avatar" id="sidebarAvatar">👤</div>
+      <div>
+        <div class="sidebar__profile-name" id="sidebarName">Cargando...</div>
+        <div class="sidebar__profile-detail" id="sidebarDetail">...</div>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav" id="sidebarNav">
+      <!-- Llenado dinámicamente según rol -->
+    </nav>
+
+    <div class="sidebar__bottom">
+      <button class="sidebar__logout" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar__search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Buscar..." id="searchInput">
+      </div>
+      <div class="topbar__right">
+        <button class="topbar__icon-btn" title="Notificaciones" id="notifBtn">
+          <i class="fa-solid fa-bell"></i>
+          <span class="notif-dot" id="notifDot"></span>
+        </button>
+        <button class="topbar__icon-btn" title="Mi perfil" id="profileBtn">
+          <i class="fa-solid fa-user"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content" id="contentArea">
+      <!-- Páginas inyectadas dinámicamente -->
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
