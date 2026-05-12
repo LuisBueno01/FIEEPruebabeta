@@ -441,7 +441,11 @@ if (form) {
       if (!semestre) {
         throw new Error("📚 Selecciona tu semestre");
       }
-      
+
+       // ===== 2. CREAR USUARIO EN FIREBASE AUTH =====
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const uid = userCredential.user.uid;
+       
       // Validación de matrícula única en Firestore
       const matriculaSnap = await getDocs(
         query(collection(db, "estudiantes"), where("matricula", "==", matricula))
@@ -463,9 +467,7 @@ if (form) {
         }
       });
 
-      // ===== 2. CREAR USUARIO EN FIREBASE AUTH =====
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const uid = userCredential.user.uid;
+      
 
       // ===== 3. SUBIR ARCHIVOS A FIREBASE STORAGE =====
       let cvURL = null, cvNombre = null;
