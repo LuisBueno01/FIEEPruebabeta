@@ -794,7 +794,7 @@ async function loadDynamicData() {
 }
 
 async function doLogout() {
-  try { await signOut(auth); window.location.href = '../Paguinasprincipal/index.html'; }
+  try { await signOut(auth); window.location.href = 'FIEEPruebabeta/index.html'; }
   catch (e) { console.error(e); }
 }
 window.doLogout = doLogout;
