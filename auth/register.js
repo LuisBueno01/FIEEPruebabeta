@@ -582,7 +582,7 @@ if (form) {
 
       // Redirigir al dashboard después de 3 segundos
       setTimeout(() => {
-        window.location.href = "../dashboard/index.html";
+        window.location.href = "FIEEPruebabeta/menu/index.html";
       }, 3000);
 
     } catch (error) {
