@@ -1530,42 +1530,64 @@ window.filterCandidatos = function(filtro, btn) {
 
 window.cambiarEstadoCandidato = async function(postId, estado) {
   try {
-    await updateDoc(doc(db, 'postulaciones', postId), { estado, fechaActualizacion: serverTimestamp() });
-    // Notificar al estudiante
+    // Primero leer la postulación para obtener datos
     const postSnap = await getDoc(doc(db, 'postulaciones', postId));
-    if (postSnap.exists()) {
-      const p = postSnap.data();
-      await addDoc(collection(db, 'notificaciones'), {
-        userId: p.estudianteId,
-        mensaje: `Tu postulación a "${p.vacanteTitulo}" ha sido ${estado === 'aceptado' ? 'aceptada ✓' : 'rechazada ✗'}.`,
-        tipo: estado === 'aceptado' ? 'green' : 'red',
-        leida: false,
-        fecha: serverTimestamp()
-      });
-    }
+    if (!postSnap.exists()) return toast('Postulación no encontrada', 'error');
+    const p = postSnap.data();
+
+    // Actualizar estado
+    await updateDoc(doc(db, 'postulaciones', postId), { 
+      estado, 
+      empresaId: currentUser.uid,        // ✅ Asegurar que esté guardado
+      fechaActualizacion: serverTimestamp() 
+    });
+
+    // Notificar al estudiante
+    await addDoc(collection(db, 'notificaciones'), {
+      userId: p.estudianteId,
+      mensaje: `Tu postulación a "${p.vacanteTitulo}" ha sido ${estado === 'aceptado' ? 'aceptada ✓' : 'rechazada ✗'}.`,
+      tipo: estado === 'aceptado' ? 'green' : 'red',
+      leida: false,
+      fecha: serverTimestamp()
+    });
+
     toast(`Candidato ${estado}`);
     loadCandidatosEmpresa('all');
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+  } catch (e) { 
+    console.error(e);
+    toast('Error: ' + e.message, 'error'); 
+  }
 };
 
 window.avanzarCandidato = async function(postId, etapaActual) {
   const nuevaEtapa = Math.min((etapaActual || 1) + 1, 4);
   const etapas = { 1: 'Enviada', 2: 'En revisión', 3: 'Entrevista', 4: 'Oferta enviada' };
   try {
+    const postSnap = await getDoc(doc(db, 'postulaciones', postId));
+    if (!postSnap.exists()) return;
+    const p = postSnap.data();
+
     await updateDoc(doc(db, 'postulaciones', postId), {
-      etapa: nuevaEtapa, estado: 'revision', fechaActualizacion: serverTimestamp()
+      etapa: nuevaEtapa, 
+      estado: 'revision', 
+      empresaId: currentUser.uid,        // ✅ Asegurar que esté guardado
+      fechaActualizacion: serverTimestamp()
     });
-    const pSnap = await getDoc(doc(db, 'postulaciones', postId));
-    if (pSnap.exists()) {
-      await addDoc(collection(db, 'notificaciones'), {
-        userId: pSnap.data().estudianteId,
-        mensaje: `Tu postulación a "${pSnap.data().vacanteTitulo}" avanzó a la etapa: ${etapas[nuevaEtapa]}.`,
-        tipo: 'blue', leida: false, fecha: serverTimestamp()
-      });
-    }
+
+    await addDoc(collection(db, 'notificaciones'), {
+      userId: p.estudianteId,
+      mensaje: `Tu postulación a "${p.vacanteTitulo}" avanzó a la etapa: ${etapas[nuevaEtapa]}.`,
+      tipo: 'blue', 
+      leida: false, 
+      fecha: serverTimestamp()
+    });
+
     toast(`Candidato avanzado a etapa: ${etapas[nuevaEtapa]}`);
     loadCandidatosEmpresa('all');
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+  } catch (e) { 
+    console.error(e);
+    toast('Error: ' + e.message, 'error'); 
+  }
 };
 
 // ---------- Stats empresa ----------
