@@ -538,7 +538,7 @@ if (form) {
       
       // Redirigir al dashboard después de 3 segundos
       setTimeout(() => {
-        window.location.href = "FIEEPruebabeta/menu/index.html";
+        window.location.href = "https://luisbueno01.github.io/FIEEPruebabeta/menu/index.html";
       }, 3000);
       
     } catch (error) {
