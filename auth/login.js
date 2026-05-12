@@ -346,6 +346,31 @@ async function handleLogin() {
    ============================================= */
 function setupEventListeners() {
 
+
+
+const btnStep1Next = document.getElementById("btn-step1-next");
+const roleBtns = document.querySelectorAll(".role-btn");
+
+// Manejo de selección de rol
+roleBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    roleBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+// Redirección según rol
+btnStep1Next?.addEventListener("click", () => {
+  const activeRole = document.querySelector(".role-btn.active");
+  const role = activeRole?.dataset.role;
+
+  if (role === "alumno") {
+    window.location.href = "register.html";
+  } else if (role === "empresa") {
+    window.location.href = "registerempresa.html";
+  }
+});
+
   log("🔧 Configurando eventos...");
 
   setupPasswordToggle(loginForm.pass, togglePass);
@@ -379,7 +404,6 @@ function setupEventListeners() {
 
   log("✅ Eventos configurados");
 }
-
 /* =============================================
    UTILIDADES DEBUG
    ============================================= */
