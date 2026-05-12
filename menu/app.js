@@ -794,7 +794,7 @@ async function loadDynamicData() {
 }
 
 async function doLogout() {
-  try { await signOut(auth); window.location.href = 'https://luisbueno01.github.io/FIEEPruebabeta/'; }
+  try { await signOut(auth); window.location.href = 'https://luisbueno01.github.io/FIEEPruebabeta/index.html'; }
   catch (e) { console.error(e); }
 }
 window.doLogout = doLogout;
